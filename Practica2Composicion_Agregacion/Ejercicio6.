@@ -1,0 +1,48 @@
+SU DIAGRAMA UML COMPLETO 
+@startuml
+
+' --------- Clases ---------
+
+class Medicamento {
+    - nombre : String
+    - precio : Double
+    - fechaVencimiento : String
+}
+
+class Registro {
+    - fechaVenta : String
+    - cantidadVendida : int
+}
+
+class Paciente {
+    - nombre : String
+    - ci : String
+}
+
+class Proveedor {
+    - nombre : String
+    - telefono : String
+}
+
+class Farmaceutico {
+    - nombre : String
+    - matriculaProfesional : String
+}
+
+' --------- Relaciones ---------
+
+' Agregación: un proveedor suministra medicamentos, pero estos pueden existir sin el proveedor
+Proveedor o-- Medicamento
+
+' Composición: un medicamento tiene registros, los registros no existen sin el medicamento
+Medicamento *-- Registro
+
+' Asociación: un registro involucra un paciente
+Registro --> Paciente
+
+' Asociación: un farmacéutico gestiona medicamentos
+Farmaceutico --> Medicamento
+
+
+@enduml
+ 
